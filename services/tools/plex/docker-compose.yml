@@ -1,0 +1,16 @@
+services:
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker
+    restart: unless-stopped
+    #devices:
+    #- "/dev/dri:/dev/dri" # intel
+    environment:
+      #- PLEX_CLAIM="<CLAIM>"
+      - PLEX_UID=1000
+      - PLEX_GID=1000
+      - TZ=America/Montreal
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    network_mode: "host"
