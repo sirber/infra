@@ -7,13 +7,14 @@ Requirements:
 Services:
 
 To enable a docker service, create an empty file named "enabled" in the service folder. 
-To prevent backups, create a "nobackup" file
-Then, only run "make up". To override a config. you can use a .env file 
-or "docker-compose.override.yml"
+To prevent backups, create a "nobackup" file anywhere.
 
-Config:
+To start enabled services, run "make up". 
+To override a service configuration, create a "docker-compose.override.yml" file with your settings.
 
-To override some config, create a .env file.
+Backups:
+
+To set the folder where the backup will be created, create a .env file with:
 - BACKUP_PATH=./
 
 Commands:
