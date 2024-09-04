@@ -39,6 +39,8 @@ version: ## Show tools versions
 	@docker -v
 
 update: ## Update enabled services
+	@git pull
+	@git submodule update
 	$(call dockerCompose, pull)
 
 clean: ## Remove unused images

@@ -1,0 +1,3 @@
+[submodule "services/hosting/detritus-ca"]
+	path = services/hosting/detritus-ca
+	url = https://github.com/sirber/detritus-ca.git
