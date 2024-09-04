@@ -40,7 +40,7 @@ version: ## Show tools versions
 
 update: ## Update enabled services
 	@git pull
-	@git submodule update
+	@git submodule update --init --recursive
 	$(call dockerCompose, pull)
 
 clean: ## Remove unused images
