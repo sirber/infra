@@ -4,6 +4,9 @@ services:
     hostname: "satisfactory-server"
     image: "wolveix/satisfactory-server:latest"
     network_mode: host
+    ports:
+        - '7777:7777/udp'
+        - '7777:7777/tcp'
     volumes:
       - "./config:/config"
     environment:
