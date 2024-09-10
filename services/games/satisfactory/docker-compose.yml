@@ -3,12 +3,9 @@ services:
     container_name: "satisfactory-server"
     hostname: "satisfactory-server"
     image: "wolveix/satisfactory-server:latest"
-    ports:
-      - '7777:7777/udp'
-      - '7777:7777/tcp'
+    network_mode: host
     volumes:
       - "./config:/config"
-    network_mode: host
     environment:
       - MAXPLAYERS=4
       - ROOTLESS=false
