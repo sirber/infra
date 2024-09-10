@@ -8,6 +8,7 @@ services:
       - '7777:7777/tcp'
     volumes:
       - "./config:/config"
+    network_mode: host
     environment:
       - MAXPLAYERS=4
       - ROOTLESS=false
