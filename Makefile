@@ -4,6 +4,7 @@
 SERVICES_DIR=./services
 SERVICES=$(shell find $(SERVICES_DIR) -readable -type f -maxdepth 3 -name "docker-compose.yml" 2>/dev/null)
 ORIGINAL_DIR=$(shell pwd)
+HOSTNAME?=$(shell hostname)
 
 ## -
 BACKUP_DATE=$(shell date +"%Y%m%d%H%M%S")
