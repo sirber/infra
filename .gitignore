@@ -4,3 +4,4 @@ nobackup
 .env
 excluded_dirs.txt
 docker-compose.override.yml
+services/

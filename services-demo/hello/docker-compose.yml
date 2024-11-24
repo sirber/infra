@@ -1,0 +1,8 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-hello-world
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data:/usr/share/nginx/html:ro
