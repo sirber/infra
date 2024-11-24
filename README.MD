@@ -26,8 +26,10 @@ It's also safe to use a `.env`.
 
 ### Configuration
 
-To set the folder where the backup will be created, create a .env file with:
-- BACKUP_PATH=./
+To set the folder where the backup will be created, create a `.env` file with:
+```
+BACKUP_PATH=./
+```
 
 ### Create a backup
 
