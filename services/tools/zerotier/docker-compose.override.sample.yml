@@ -1,3 +1,0 @@
-services:
-  client:
-    command: [network id]
