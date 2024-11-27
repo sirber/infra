@@ -15,6 +15,17 @@ Have a look at `service-demo/` for an exemple.
 To enable a docker service, just `touch enabled` in the service folder. 
 To disable one, just remove the file. You might have to manually stop the service with `docker-compose down`.  
 
+#### External repo for services
+
+You can clone in another git repository into `services`. Be sure to add a `.env` with this:
+
+```
+.env
+docker-compose.override.yml
+enabled
+nobackup
+```
+
 ### Start services
 
 To start enabled services, run `make update` then `make up`. 
