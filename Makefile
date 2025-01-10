@@ -41,11 +41,11 @@ endef
 
 ## Show help
 help:
-    @awk '/^## / \
-	{ if (c) {print c}; c=substr($$0, 4); next } \
-	c && /(^[[:alpha:]][[:alnum:]_-]+:)/ \
-	{print $$1, "\t", c; c=0} \
-	END { print c }' $(MAKEFILE_LIST)
+	@awk '/^## / \
+		{ if (c) {print c}; c=substr($$0, 4); next } \
+		c && /(^[[:alpha:]][[:alnum:]_-]+:)/ \
+		{print $$1, "\t", c; c=0} \
+		END { print c }' $(MAKEFILE_LIST)
 
 ## Show tools versions
 version: 
