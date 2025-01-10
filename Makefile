@@ -1,5 +1,9 @@
 .PHONY: up down help backup update clean version
 
+##
+## Docker Inffra
+## 
+
 # Config
 SERVICES_DIR=./services
 SERVICES=$(shell find $(SERVICES_DIR) -readable -type f -maxdepth 3 -name "docker-compose.yml" 2>/dev/null)
@@ -33,29 +37,37 @@ define rootCheck
 	fi
 endef
 
-.PHONY: help
 help:
-	@echo "Available targets:"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
+    @awk '/^## / \
+        { if (c) {print c}; c=substr($$0, 4); next } \
+         c && /(^[[:alpha:]][[:alnum:]_-]+:)/ \
+        {print $$1, "\t", c; c=0} \
+         END { print c }' $(MAKEFILE_LIST)
 
-version: ## Show tools versions
+## Show tools versions
+version: 
 	@docker -v
 
-update: ## Update enabled services
+## Update infra and enabled services
+pull: 
 	@git pull
 	@git submodule update --init --recursive
 	$(call dockerCompose, pull)
 
-clean: ## Remove unused images
+## Remove unused images
+clean: 
 	@docker image prune -a -f
 
-up: ## Start enabled services
+## Start enabled services
+up:
 	$(call dockerCompose, up -d);
 	
-down: ## Stop enabled services
+## Stop enabled services
+down: 
 	$(call dockerCompose, down)
 	
-backup: ## Backup
+## Stops the infra, run a Backup, then restart it
+backup: 
 	$(call rootCheck)
 	@echo "Shutting down infra..."
 	@make down
