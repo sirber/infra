@@ -17,7 +17,7 @@ To disable one, just remove the file. You might have to manually stop the servic
 
 #### External repo for services
 
-You can clone in another git repository into `services`. Be sure to add a `.env` with this:
+You can clone in another git repository into `services`. Be sure to add a `.gitignore` with this:
 
 ```
 .env
